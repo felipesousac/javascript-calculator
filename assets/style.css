@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Rubik:wght@300;400&display=swap');
+
+/* === GENERAL =====================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --background-dark: hsla(220, 6%, 10%, 1);
+  --display-grey: #818181;
+  --display-white: #ffffff;
+
+  --button-bg-grey: hsla(0, 0%, 38%, 1);
+
+  --button-bg-number: hsla(228, 7%, 20%, 1);
+  --number-blue: hsla(204, 100%, 58%, 1);
+
+  --del-buttons: hsla(0, 0%, 65%, 1);
+
+  --operator-bg: hsla(209, 100%, 35%, 1);
+  --operator-button: hsla(209, 100%, 60%, 1);
+
+  --equal-bg: hsla(209, 100%, 55%, 1);
+  --equal-button: hsla(209, 100%, 85%, 1);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--button-bg-number);
+}
+
+/* === BODY =====================*/
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.letters-container span {
+  font-size: 3.6rem;
+  font-family: 'Rubik';
+
+  font-variation-settings: 'wght' 100;
+  letter-spacing: 0;
+}
+
+.letters-container:hover span {
+  animation: letterWave 0.8s ease-in-out infinite alternate;
+  animation-delay: calc(var(--order) * 100ms);
+}
+
+@keyframes letterWave {
+  to {
+    font-variation-settings: 'wght' 500;
+    letter-spacing: -0.4rem;
+  }
+}
+
+main p {
+  font-size: 1.6rem;
+  font-family: 'Rubik';
+}
+
+/*=== CALCULATOR =====================*/
+/*calculator background*/
+.calculator-container {
+  width: 37.5rem;
+  height: 71rem;
+  border-radius: 3.9rem;
+  background-color: var(--background-dark);
+}
+
+/*calculator display*/
+.display {
+  margin-top: 13.8rem;
+  text-align: right;
+  margin-right: 3.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.display-top {
+  margin-bottom: 0.6rem;
+  height: 3.6rem;
+  width: 17.5rem;
+
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  font-weight: 400;
+  color: var(--display-grey);
+}
+
+.display-bottom {
+  width: 17.1rem;
+  height: 7.2rem;
+
+  font-weight: 500;
+  font-size: 4.8rem;
+  line-height: 7.2rem;
+  color: var(--display-white);
+
+  margin-bottom: 7.8rem;
+}
+
+/*buttons*/
+.buttons {
+  display: grid;
+  grid-gap: 1rem 1rem;
+  grid-template-columns: repeat(4, 1fr);
+
+  grid-template-areas:
+    'r1 r1 r1 r1'
+    'r2 r2 r2 r2'
+    'r3 r3 r3 r3'
+    'r4 r4 r4 equal'
+    'zero zero dot equal';
+
+  margin-inline: 3.4rem 3.3rem;
+  margin-bottom: 3rem;
+}
+
+.button {
+  font-size: 3.2rem;
+  line-height: 4.8rem;
+  font-weight: 500;
+
+  width: 6.2rem;
+  height: 6.2rem;
+  border-radius: 1.6rem;
+  border: none;
+  padding: 0.6rem 0.4rem 0.6rem 0.4rem;
+  background-color: var(--button-bg-grey);
+
+  cursor: pointer;
+}
+
+.button:active {
+  transition: 0.1s ease-in-out;
+  transform: scale(0.98);
+}
+
+/* .button-column1,
+.button-column2,
+.button-column3,
+.button-column4 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+} */
+
+.number {
+  background-color: var(--button-bg-number);
+  color: var(--number-blue);
+}
+
+/* .button-row {
+  display: flex;
+  gap: 2rem;
+
+  margin-left: 3.4rem;
+  margin-top: -3rem;
+
+  width: fit-content;
+
+  transform: translateY(-3.27rem);
+} */
+
+/*unique buttons*/
+.zero {
+  width: 14.4rem;
+}
+
+.zero {
+  grid-area: zero;
+}
+
+.equal {
+  height: 13.4rem;
+  grid-area: equal;
+}
+
+.dot {
+  grid-area: dot;
+}
+
+.del {
+  color: var(--del-buttons);
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+}
+
+.operator {
+  background-color: var(--operator-bg);
+  color: var(--operator-button);
+}
+
+.equal {
+  background-color: var(--equal-bg);
+  color: var(--equal-button);
+}
